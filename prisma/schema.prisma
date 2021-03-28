@@ -1,0 +1,33 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model favorite {
+  movieId   Int     @map("movie_id")
+  accountId Int     @map("account_id")
+  account   account @relation(fields: [accountId], references: [id])
+  movie     movie   @relation(fields: [movieId], references: [id])
+
+  @@id([movieId, accountId])
+}
+
+model movie {
+  id           Int        @id
+  title        String
+  overview     String?
+  posterPath   String?    @map("poster_path")
+  backdropPath String?    @map("backdrop_path")
+  favorite     favorite[]
+}
+
+model account {
+  id       Int        @id @default(autoincrement())
+  username String     @unique
+  password String
+  favorite favorite[]
+}

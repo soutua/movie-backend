@@ -1,0 +1,1 @@
+Node.js/Express backend for fetching movie data and adding favorites. The original movie data is provided by themoviedb.org
