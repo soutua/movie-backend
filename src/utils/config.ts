@@ -1,4 +1,4 @@
-require('dotenv').config()
+require('dotenv-flow').config()
 
 const { PORT, MOVIEDB_API_KEY, TOKEN_SECRET } = process.env
 

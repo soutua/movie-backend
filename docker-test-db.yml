@@ -1,0 +1,11 @@
+version: "3.8"
+
+services:
+  db:
+    image: postgres
+    ports:
+      - "7357:5432"
+    environment:
+      POSTGRES_USER: moviedb
+      POSTGRES_PASSWORD: secret
+      POSTGRES_DB: moviedb-test

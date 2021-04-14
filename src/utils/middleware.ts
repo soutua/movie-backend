@@ -2,12 +2,11 @@ import { Request, Response, NextFunction } from 'express'
 import { validationResult } from 'express-validator'
 import { verify, Secret } from 'jsonwebtoken'
 import pino from 'pino'
-import { PrismaClient } from '@prisma/client'
+import prisma from './prisma'
 import config from '../utils/config'
 import { TokenData } from '../types/types'
 
 const logger = pino()
-const prisma = new PrismaClient()
 
 const validate = (req: Request, res: Response, next: NextFunction) => {
   const errors = validationResult(req)

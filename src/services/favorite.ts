@@ -1,10 +1,8 @@
 import { PrismaClientKnownRequestError } from '@prisma/client/runtime'
-import { PrismaClient, account } from '.prisma/client'
+import { account } from '.prisma/client'
 import { movieFromPrisma } from '../types/converters'
-
+import prisma from '../utils/prisma'
 import { getMovie } from './moviedb'
-
-const prisma = new PrismaClient()
 
 const saveFavorite = async (user: account, movieId: number) => {
   const favorite = await prisma.favorite.findUnique({

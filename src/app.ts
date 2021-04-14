@@ -1,3 +1,5 @@
+/* eslint-disable import/first */
+require('./utils/config')
 import express from 'express'
 import pino from 'pino-http'
 import userRouter from './controllers/user'

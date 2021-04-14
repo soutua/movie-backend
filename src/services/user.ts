@@ -1,10 +1,8 @@
 import bcrypt from 'bcrypt'
 import { sign, Secret } from 'jsonwebtoken'
-import { PrismaClient } from '@prisma/client'
+import prisma from '../utils/prisma'
 import config from '../utils/config'
 import { TokenData } from '../types/types'
-
-const prisma = new PrismaClient()
 
 const register = async (username: string, password: string) => {
   const hashedPassword = await bcrypt.hash(password, 10)
